@@ -23,6 +23,13 @@
 
     {{-- {{ app()->currentLocale() }} --}}
 
+    <style>
+        .table th,
+        .table td {
+            vertical-align: middle
+        }
+    </style>
+
     @if (app()->currentLocale() == 'ar')
     <style>
 
