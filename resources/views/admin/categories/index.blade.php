@@ -24,7 +24,7 @@
         $name = 'name_'.app()->currentLocale();
     @endphp
     <tr>
-        <td>{{ $category->id }} {{ $name }}</td>
+        <td>{{ $category->id }}</td>
         {{-- <td>{{ $category->{'name_'.app()->currentLocale()} }}</td> --}}
         <td>{{ $category->$name }}</td>
         <td><img width="80" src="{{ asset('uploads/'.$category->image) }}" alt=""></td>

@@ -28,7 +28,7 @@
         $name = 'name_'.app()->currentLocale();
     @endphp
     <tr>
-        <td>{{ $product->id }} {{ $name }}</td>
+        <td>{{ $product->id }}</td>
         {{-- <td>{{ $product->{'name_'.app()->currentLocale()} }}</td> --}}
         <td>{{ $product->$name }}</td>
         <td><img width="80" src="{{ asset('uploads/'.$product->image) }}" alt=""></td>
