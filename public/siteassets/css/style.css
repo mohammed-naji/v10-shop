@@ -1112,6 +1112,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   right: 0;
   left: 0;
   bottom: 0;
+  border-radius: 5px;
 }
 
 .product-item .product-thumb .preview-meta {
@@ -2712,4 +2713,19 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 
 .category-box .content h3 {
     color: #fff;
+}
+
+.product-item .product-thumb img {
+    height: 300px;
+    object-fit: contain;
+}
+
+.custom-navs nav > div:nth-child(1) {
+    display: none;
+}
+
+.custom-navs nav > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

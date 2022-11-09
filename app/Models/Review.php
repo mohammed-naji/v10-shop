@@ -9,6 +9,7 @@ class Review extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
 
     public function product()
     {

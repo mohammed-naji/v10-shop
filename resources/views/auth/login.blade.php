@@ -262,7 +262,7 @@
                 <label for="email">E-mail</label>
                 <div class="input-email">
                     <i class="fas fa-envelope icon"></i>
-                    <input type="email" name="email" placeholder="Enter your e-mail" required>
+                    <input type="text" name="email" placeholder="Enter your e-mail" required>
 
                 </div>
                 @error('email')
