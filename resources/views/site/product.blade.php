@@ -269,6 +269,7 @@ h1 { font-size: 1.5em; margin: 10px; }
                 @foreach ($related as $product)
                 <div class="col-md-3">
                     @include('site.parts.product_box')
+
                 </div>
                 @endforeach
 
