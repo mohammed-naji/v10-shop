@@ -90,6 +90,13 @@ h1 { font-size: 1.5em; margin: 10px; }
                 </div>
                 <div class="col-md-7">
                     <div class="single-product-details">
+
+                        @if (session('msg'))
+                            <div class="alert alert-success">
+                                {{ session('msg') }}
+                            </div>
+                        @endif
+
                         <h2>{{ $product->$name }}</h2>
                         {{-- <i class="tf-ion-star"></i> {{ round($product->reviews->avg('star') / 2, 2) }} --}}
                         @php $rating = round($product->reviews->avg('star') / 2, 2); @endphp
@@ -153,13 +160,18 @@ h1 { font-size: 1.5em; margin: 10px; }
                                 <li><a href="product-single.html">{{ $product->category->$name }}</a></li>
                             </ul>
                         </div>
-                        <div class="product-quantity">
-                            <span>Quantity:</span>
-                            <div class="product-quantity-slider">
-                                <input id="product-quantity" type="text" value="0" name="product-quantity">
+                        <form action="{{ route('site.add_to_cart') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                            <div class="product-quantity">
+                                <span>Quantity:</span>
+                                <div class="product-quantity-slider">
+                                    <input id="product-quantity" type="text" value="1" name="product-quantity">
+                                </div>
                             </div>
-                        </div>
-                        <a href="cart.html" class="btn btn-main mt-20">Add To Cart</a>
+                            <button class="btn btn-main mt-20">Add To Cart</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -247,6 +259,8 @@ h1 { font-size: 1.5em; margin: 10px; }
                                         <textarea class="form-control" placeholder="Write your review here.." rows="5" name="content"></textarea>
                                         <button class="btn btn-main mt-20">Post</button>
                                     </form>
+                                    @else
+                                    <p>you need to be <a href="{{ route('login') }}">logged in</a> to add a review</p>
                                     @endif
                                 </div>
                             </div>

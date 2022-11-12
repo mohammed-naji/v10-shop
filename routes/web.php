@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\SiteController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -25,6 +26,14 @@ Route::prefix(LaravelLocalization::setLocale())->group(function() {
     Route::get('/category/{id}', [SiteController::class, 'category'])->name('site.category');
     Route::get('/product/{id}', [SiteController::class, 'product'])->name('site.product');
     Route::post('/product/{id}/review', [SiteController::class, 'review'])->name('site.review');
+
+
+    Route::post('/add-to-cart', [CartController::class, 'add_to_cart'])->name('site.add_to_cart');
+    Route::get('/remove-cart/{id}', [CartController::class, 'remove_cart'])->name('site.remove_cart');
+    Route::get('/cart', [CartController::class, 'cart'])->name('site.cart')->middleware('auth');
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('site.checkout')->middleware('auth');
+    Route::get('/payment', [CartController::class, 'payment'])->name('site.payment')->middleware('auth');
+
 
     // Auth::routes(['register' => false]);
     Auth::routes(['verify' => true]);
