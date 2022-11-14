@@ -15,7 +15,7 @@
             <div class="col-lg-8 text-center">
               <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
               <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">{{ $item->$name }}</h1>
-              <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+              <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="{{ route('site.product', $item->id) }}">Shop Now</a>
             </div>
           </div>
         </div>

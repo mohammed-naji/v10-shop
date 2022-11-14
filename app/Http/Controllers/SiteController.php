@@ -77,4 +77,13 @@ class SiteController extends Controller
 
         return redirect()->back();
     }
+
+    public function search(Request $request)
+    {
+        // dd($request->all());
+        $name = 'name_' . app()->currentLocale();
+        $products = Product::where($name, 'like', '%' . $request->keyword . '%')->get();
+
+        return view('site.search', compact('products'));
+    }
 }

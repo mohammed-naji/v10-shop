@@ -30,8 +30,7 @@
           <div class="col-md-8 col-md-offset-2">
             <div class="block">
                 <script src="https://eu-test.oppwa.com/v1/paymentWidgets.js?checkoutId={{ $id }}"></script>
-                <form action="{{ route('site.payment') }}" class="paymentWidgets" data-brands="VISA MASTER AMEX MADA APPLEPAY"></form>
-
+                <form action="{{ route('site.payment') }}" class="paymentWidgets" data-brands="VISA MASTER AMEX MADA"></form>
             </div>
           </div>
         </div>
