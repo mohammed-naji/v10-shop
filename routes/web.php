@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\SendNotifyController;
 use App\Http\Controllers\SiteController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -45,3 +46,8 @@ Route::prefix(LaravelLocalization::setLocale())->group(function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 });
+
+
+Route::get('send-notify', [SendNotifyController::class, 'send_notify']);
+Route::get('all-notify', [SendNotifyController::class, 'all_notify']);
+Route::get('read-notify/{id}', [SendNotifyController::class, 'read_notify'])->name('read_notify');

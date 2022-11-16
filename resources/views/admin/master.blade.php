@@ -60,6 +60,8 @@
 
     @endif
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 </head>
 
 <body id="page-top">
@@ -266,6 +268,11 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('adminassets/js/sb-admin-2.min.js') }}"></script>
     @yield('scripts')
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <!-- Scripts -->
+    @vite(['resources/js/app.js'])
 </body>
 
 </html>
