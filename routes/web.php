@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\APIController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SendNotifyController;
 use App\Http\Controllers\SiteController;
@@ -51,3 +52,6 @@ Route::prefix(LaravelLocalization::setLocale())->group(function() {
 Route::get('send-notify', [SendNotifyController::class, 'send_notify']);
 Route::get('all-notify', [SendNotifyController::class, 'all_notify']);
 Route::get('read-notify/{id}', [SendNotifyController::class, 'read_notify'])->name('read_notify');
+
+
+Route::get('posts-api', [APIController::class, 'get_posts']);
