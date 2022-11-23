@@ -31,12 +31,18 @@
         <td>{{ $category->created_at->format('d/m/Y') }}</td>
         <td>{{ $category->updated_at->diffForhumans(); }}</td>
         <td>
+            @can('edit_category')
             <a class="btn btn-primary btn-sm" href="{{ route('admin.categories.edit', $category->id) }}"><i class="fas fa-edit"></i></a>
-            <form class="d-inline" action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
-            @csrf
-            @method('delete')
-            <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"><i class="fas fa-trash"></i></button>
-            </form>
+            @endcan
+
+            @can('delete_category')
+                <form class="d-inline" action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
+                @csrf
+                @method('delete')
+                <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"><i class="fas fa-trash"></i></button>
+                </form>
+            @endcan
+
         </td>
     </tr>
     @empty

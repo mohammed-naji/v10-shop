@@ -32,7 +32,9 @@
         <div id="collapseCategory" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ route('admin.categories.index') }}">{{ trans('admin.all_categories') }}</a>
+                @can('add_category')
                 <a class="collapse-item" href="{{ route('admin.categories.create') }}">{{ __('admin.add_new') }}</a>
+                @endcan
             </div>
         </div>
     </li>
@@ -93,6 +95,24 @@
         <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-users"></i>
             <span>{{ __('admin.customers') }}</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRole"
+            aria-expanded="true" aria-controls="collapseRole">
+            <i class="fas fa-fw fa-shield-alt"></i>
+            <span>{{ __('admin.roles') }}</span>
+        </a>
+        <div id="collapseRole" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{{ route('admin.roles.index') }}">{{ __('admin.all_roles') }}</a>
+                <a class="collapse-item" href="{{ route('admin.roles.create') }}">{{ __('admin.add_new') }}</a>
+
+            </div>
+        </div>
     </li>
 
 

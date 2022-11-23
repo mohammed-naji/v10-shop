@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\APIController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SendNotifyController;
@@ -19,6 +20,7 @@ Route::prefix(LaravelLocalization::setLocale())->group(function() {
 
         Route::resource('categories', CategoryController::class);
         Route::resource('products', ProductController::class);
+        Route::resource('roles', RoleController::class);
     });
 
     Route::get('/', [SiteController::class, 'index'])->name('site.home');

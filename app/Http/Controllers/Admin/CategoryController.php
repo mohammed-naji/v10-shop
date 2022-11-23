@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 
 class CategoryController extends Controller
 {
@@ -16,6 +17,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        Gate::authorize('all_categories');
+
         $categories = Category::latest('id')->paginate(10);
         return view('admin.categories.index', compact('categories'));
     }
@@ -27,6 +30,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        Gate::authorize('add_category');
         $category = new Category();
         return view('admin.categories.create', compact('category'));
     }
